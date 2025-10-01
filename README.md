@@ -1,4 +1,9 @@
-🐳 Cómo crear Imágenes y Contenedores en Docker
+Cómo crear Imágenes y Contenedores en Docker
+
+dependencias a utilizar 
+
+  npm init -y  
+  npm install express
 
 para levantar un proyecto con Docker usando dos opciones: comandos manuales o docker-compose.yml
 
