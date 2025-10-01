@@ -1,0 +1,35 @@
+version: "3.9"
+services:
+  web:
+    build: .
+    container_name: node-web
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mysql
+  xampp:
+    image: tomsik68/xampp
+    container_name: xampp
+    depends_on:
+      - mysql
+    ports:
+      - "8080:80"     
+    volumes:
+      - ./www:/www 
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=superroot
+      - MYSQL_DATABASE=miapp
+      - MYSQL_USER=miusuario
+      - MYSQL_PASSWORD=mipass
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - "3307:3306"    
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
